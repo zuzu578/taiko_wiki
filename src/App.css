@@ -25,3 +25,7 @@
   color: white;
   padding:10px;
 }
+.title_wiki { 
+  text-align: center;
+}
+.editor_area { width:70%; margin:0 auto;}

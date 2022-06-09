@@ -11,7 +11,7 @@ const WikiMain = () => {
                 <strong>검증되지 않았거나 편향된 내용이 있을 수 있습니다.</strong><br/>
                 <div className="first">
                     <div className="item"> 
-                        <h2> 태고위키에 문서를 기여해주세요! </h2><br/>
+                        <h2> <a href='/wikireg'>태고위키에 문서를 기여해주세요!</a> </h2><br/>
                         <h2> 태고위키에서 자유롭게 문서를 작성하고 문서를 기여하실수 있습니다.</h2>
                     </div>
                     <div className="item"> 
