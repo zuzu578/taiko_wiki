@@ -11,9 +11,8 @@ const WikiReg = () => {
         const editorInstance = editorRef.current.getInstance();
         const md = editorInstance.getMarkdown();
         console.log('testset',md);
-        const getHtml = editorInstance.getHTML();
-        console.log('html ==>' , getHtml);
-        console.log('test!',getHtml.replace('&lt;iframe','<iframe'))
+        const getHtml = editorInstance.getHTML().replaceAll('&lt;','<').replaceAll('&gt;','>');
+        console.log('testCase2 ====>' , getHtml);
     }
 
     return(
