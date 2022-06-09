@@ -28,4 +28,6 @@
 .title_wiki { 
   text-align: center;
 }
-.editor_area { width:70%; margin:0 auto;}
+.editor_area { width:90%; margin:0 auto;}
+.writeBtn { text-align: right; margin-top:20px; margin-bottom: 20px;}
+.editInfo { font-weight: bold; color: red;}
