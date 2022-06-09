@@ -14,6 +14,8 @@ const WikiReg = () => {
         const getHtml = editorInstance.getHTML();
         console.log('html ==>' , getHtml);
         console.log('test!',getHtml.replace('&lt;iframe','<iframe'))
+        // test case 
+        console.log('testCase2 ====>' , getHtml.replaceAll('&lt;','<').replaceAll('&gt;','>'));
     }
 
     return(
