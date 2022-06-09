@@ -46,7 +46,7 @@ const WikiReg = () => {
         frm.append('file', blob);
         fileUpload(frm)
         .then((res)=>{
-            console.log(res.data);
+            console.log('file 업로드 url' , res.data);
         })
         .catch((e)=>{
             e.message;
@@ -96,6 +96,7 @@ const WikiReg = () => {
     return(
         <div>
             <h2 className='title_wiki'>위키 문서 작성하기</h2>
+                <img src='http://localhost:3000/src/assets/image/901988f7f179347887cead25ee34c46a.jpg'/>
                 <div className='editor_area'>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder="곡 제목" onChange={getSongName} aria-label="Username" aria-describedby="basic-addon1"/>
