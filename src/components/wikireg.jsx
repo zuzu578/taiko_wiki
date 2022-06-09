@@ -2,7 +2,7 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 
 import { Editor } from '@toast-ui/react-editor';
 import { useRef } from 'react';
-
+import youtubeUrl from 'youtube-url'
 
 const WikiReg = () => {
     const editorRef = useRef();
@@ -11,6 +11,9 @@ const WikiReg = () => {
         const editorInstance = editorRef.current.getInstance();
         const md = editorInstance.getMarkdown();
         console.log('testset',md);
+        const getHtml = editorInstance.getHTML();
+        console.log('html ==>' , getHtml);
+        console.log('test!',getHtml.replace('&lt;iframe','<iframe'))
     }
 
     return(
@@ -22,13 +25,13 @@ const WikiReg = () => {
           previewStyle="vertical"
           height="400px"
           initialEditType="markdown"
-          initialValue="hello"
+          initialValue=""
           ref={editorRef}
         />
         <button onClick={wikiWrite}>Click!</button>
       </>
-                </div>
         </div>
+    </div>
     )
 }
 
