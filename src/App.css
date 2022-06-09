@@ -1,5 +1,27 @@
 
-.search{
+.nav_bar{
  width:50%;
- margin-left: 750px;
+ margin: 0 auto;
+ padding-top:20px;
+
+}
+.ip{
+  font-weight: bold;
+  color:red;
+}
+.wiki_main_image img{
+  width:100%;
+}
+.main_info{
+  text-align: center;
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+.item{
+  border:1px solid white;
+  width:80%;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  padding:10px;
 }
