@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import { getIpAddress } from '../apis/getIpAddress';
 import { validator } from '../utils/validator';
 import { fileUpload } from '../apis/fileUpload';
+import test from '../assets/image/901988f7f179347887cead25ee34c46a.jpg';
 
 const WikiReg = () => {
 
@@ -41,16 +42,11 @@ const WikiReg = () => {
 
     }
 
-    const uploadImage = (blob) =>{
+    const uploadImage = async(blob) =>{
         const frm = new FormData();
         frm.append('file', blob);
-        fileUpload(frm)
-        .then((res)=>{
-            console.log('file 업로드 url' , res.data);
-        })
-        .catch((e)=>{
-            e.message;
-        })
+        const url = await fileUpload(frm);
+        return 'http://localhost:3000/src/assets/image/'+url.data.fileName;
     }
 
     const getSongName = (e) => {
@@ -96,13 +92,13 @@ const WikiReg = () => {
     return(
         <div>
             <h2 className='title_wiki'>위키 문서 작성하기</h2>
-                <img src='http://localhost:3000/src/assets/image/901988f7f179347887cead25ee34c46a.jpg'/>
+            <img src={test}/>
                 <div className='editor_area'>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder="곡 제목" onChange={getSongName} aria-label="Username" aria-describedby="basic-addon1"/>
                 </div>
                 <div className="input-group mb-3">
-                    <input type="text" className="form-control" onChange={getSubtitle} placeholder="틀은 ,로 구분지어서 작성하실수있습니다. 예시(ex: 갓곡,레전드,헬조선..등등)" aria-label="Username" aria-describedby="basic-addon1"/>
+                    <input type="text" className="form-control" onChange={getSubtitle} placeholder="틀은 ,로 구분지어서 작성하실수있습니다. 예시(ex: 갓곡,레전드..등등)" aria-label="Username" aria-describedby="basic-addon1"/>
                 </div>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" onChange={getWriter} placeholder="작곡가" aria-label="Username" aria-describedby="basic-addon1"/>
