@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { getWikiData } from "../apis/getWikiData";
+import { subTitleMaker } from "../utils/subtitleMaker";
 
 const WikiDetail = () => {
     const [wikiData , setWikiData ] =useState([{}]);
+    const [subTitle , setSubtitle ] = useState([]);
     useEffect(()=>{
         const currentUrl = window.location.href;
         const url = new URL(currentUrl);
@@ -13,6 +15,7 @@ const WikiDetail = () => {
         .then((res)=>{
             console.log(res.data);
             setWikiData(res.data);
+            setSubtitle(res.data.subtitle.split(','));
         })
         .catch((e)=>{
             e.message;
@@ -22,7 +25,16 @@ const WikiDetail = () => {
 
     return (
         <div className="wrapper">
-            <div className="wikiInfo">
+            {wikiData ? <>
+                <h1>{wikiData.title}</h1>
+                {subTitle.map((item)=>{
+                    return(
+                        <div className="subtitle_wrapper">
+                            {subTitleMaker(item)}
+                        </div>
+                    )
+                })}
+                <div className="wikiInfo">
                 <div className="thumbnail">
                     <img src={wikiData.thumnail}/>
                 </div>
@@ -55,6 +67,8 @@ const WikiDetail = () => {
                 </div>
 
             </div>
+            </> : ''}
+            
              <div dangerouslySetInnerHTML={{ __html: wikiData.text }}></div>
             {/* {wikiData.map((item)=>{
                 return(

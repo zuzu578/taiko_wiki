@@ -23,6 +23,7 @@ const WikiReg = () => {
     const [muzukashi , setMuzukashiLevel] = useState('');
     const [oni , setOniLevel] = useState('');
     const [ura , setUraLevel] = useState('');
+    const [thumbNail , setThumbNail] = useState('');
     const [makeDocTitle ,setMakeDocTitle] = useState('');
     const [isExistDoc , setIsExistDoc] = useState(false);
     const [existDocData , setExistDocData] = useState({});
@@ -116,6 +117,10 @@ const WikiReg = () => {
     const getRecorded = (e) => {
         setRecorded(e.target.value);
     }
+    const getThumnail = (e) =>{
+        setThumbNail(e.target.value);
+
+    }
 
     const getKantanLevel = (e) => {
         setKantanLevel(e.target.value);
@@ -147,6 +152,9 @@ const WikiReg = () => {
                 <div className='editor_area'>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" value={existDocData.title} placeholder="곡 제목" onChange={getSongName} aria-label="Username" aria-describedby="basic-addon1"/>
+                </div>
+                <div className="input-group mb-3">
+                    <input type="text" className="form-control" value={existDocData.thumnail} placeholder="곡 썸네일 이미지 링크" onChange={getSongName} aria-label="Username" aria-describedby="basic-addon1"/>
                 </div>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" value={existDocData.subtitle} onChange={getSubtitle} placeholder="틀은 ,로 구분지어서 작성하실수있습니다. 예시(ex: 갓곡,레전드..등등)" aria-label="Username" aria-describedby="basic-addon1"/>
@@ -198,6 +206,9 @@ const WikiReg = () => {
                 <div className='editor_area'>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder="곡 제목" onChange={getSongName} aria-label="Username" aria-describedby="basic-addon1"/>
+                </div>
+                <div className="input-group mb-3">
+                    <input type="text" className="form-control"  placeholder="곡 썸네일 이미지 링크" onChange={getThumnail} aria-label="Username" aria-describedby="basic-addon1"/>
                 </div>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" onChange={getSubtitle} placeholder="틀은 ,로 구분지어서 작성하실수있습니다. 예시(ex: 갓곡,레전드..등등)" aria-label="Username" aria-describedby="basic-addon1"/>

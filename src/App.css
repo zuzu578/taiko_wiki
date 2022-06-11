@@ -44,3 +44,8 @@
 .muzukashi{text-align: center; font-weight: bold; font-size: 20px;}
 .oni{text-align: center; font-weight: bold; font-size: 20px;}
 .ura{text-align: center; font-weight: bold; font-size: 20px;}
+.first { font-weight: bold; color : red ; font-size: 20px;}
+.legends { font-weight: bold; color:gold; font-size: 20px;}
+.subtitle_wrapper { text-align: center; width:90%; margin: 0 auto; margin-top:40px; margin-bottom: 40px;}
+table { border: 1px solid gray; }
+td {padding:20px;}
