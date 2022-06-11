@@ -31,3 +31,16 @@
 .editor_area { width:90%; margin:0 auto;}
 .writeBtn { text-align: right; margin-top:20px; margin-bottom: 20px;}
 .editInfo { font-weight: bold; color: red;}
+.wrapper { width: 80%; margin: 0 auto;}
+.contribute { width:70%; margin: 0 auto;}
+.wikiInfo { border:1px solid gray;}
+.thumbnail { text-align: center;}
+.songTitle { text-align: center; font-weight: bold; font-size: 30px;}
+.song_writer {text-align: center; font-weight: bold;font-size: 20px;}
+.sheet_maker { text-align: center ;font-weight: bold; font-size: 20px;}
+.recorded { text-align: center; font-weight: bold; font-size: 20px;}
+.kantan{text-align: center; font-weight: bold; font-size: 20px;}
+.hutsuu{text-align: center; font-weight: bold; font-size: 20px;}
+.muzukashi{text-align: center; font-weight: bold; font-size: 20px;}
+.oni{text-align: center; font-weight: bold; font-size: 20px;}
+.ura{text-align: center; font-weight: bold; font-size: 20px;}

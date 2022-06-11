@@ -1,6 +1,6 @@
 const validator = (songName) => {
 
-    if(!songName){alert('노래제목을 입력해주세요.');return}
+    if(!songName){alert('노래제목을 입력해주세요.');return false}
   
 
 }
