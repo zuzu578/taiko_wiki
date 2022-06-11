@@ -23,7 +23,7 @@ const WikiReg = () => {
     const [muzukashi , setMuzukashiLevel] = useState('');
     const [oni , setOniLevel] = useState('');
     const [ura , setUraLevel] = useState('');
-    const [thumbNail , setThumbNail] = useState('');
+    const [thumbnail , setThumbNail] = useState('');
     const [makeDocTitle ,setMakeDocTitle] = useState('');
     const [isExistDoc , setIsExistDoc] = useState(false);
     const [existDocData , setExistDocData] = useState({});
@@ -78,6 +78,7 @@ const WikiReg = () => {
         frm.append("oni",oni);
         frm.append("ura",ura);
         frm.append("text",getHtml);
+        frm.append("thumnail",thumbnail);
 
         postingWiki(frm)
         .then((res)=>{

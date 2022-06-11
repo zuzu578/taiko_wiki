@@ -33,7 +33,7 @@
 .editInfo { font-weight: bold; color: red;}
 .wrapper { width: 80%; margin: 0 auto;}
 .contribute { width:70%; margin: 0 auto;}
-.wikiInfo { border:1px solid gray;}
+.wikiInfo { border:1px solid gray; padding:20px;}
 .thumbnail { text-align: center;}
 .songTitle { text-align: center; font-weight: bold; font-size: 30px;}
 .song_writer {text-align: center; font-weight: bold;font-size: 20px;}
@@ -49,3 +49,10 @@
 .subtitle_wrapper { text-align: center; width:90%; margin: 0 auto; margin-top:40px; margin-bottom: 40px;}
 table { border: 1px solid gray; }
 td {padding:20px;}
+.recommendLevel{ text-align: center;}
+.taiko_para{color:red; font-weight: bold; font-size:30px;}
+.sameLevelThumbNail img{width:100%;}
+.sameLevelThumbNail{ width: 300px; margin: 0 auto;}
+.recommend { width:100%; margin: 0 auto; margin-bottom: 70px;}
+.songTitles { font-weight: bold; font-size: 20px;}
+.sameLevelWrapper{display: flex; flex-wrap: wrap-reverse;}

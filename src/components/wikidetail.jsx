@@ -2,20 +2,28 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getWikiData } from "../apis/getWikiData";
 import { subTitleMaker } from "../utils/subtitleMaker";
+import { getSameLevelDoc } from "../apis/getSameLevelDoc";
 
 const WikiDetail = () => {
     const [wikiData , setWikiData ] =useState([{}]);
     const [subTitle , setSubtitle ] = useState([]);
+    const [nowPageDocLevel , setNowPageDocLevel] = useState('');
+    const [nowPageSameLevelContents , setNowPageSameLevelContents] = useState([{}]);
+
     useEffect(()=>{
         const currentUrl = window.location.href;
         const url = new URL(currentUrl);
         const urlParams = url.searchParams;
         const parameter = urlParams.get('searchKeyword');
         getWikiData(parameter)
-        .then((res)=>{
+        .then(async(res)=>{
             console.log(res.data);
             setWikiData(res.data);
             setSubtitle(res.data.subtitle.split(','));
+            setNowPageDocLevel(res.data.oni);
+            const result = await getSameLevelDoc(res.data.oni);
+            console.log('result ===> ' , result.data);
+            setNowPageSameLevelContents(result.data);
         })
         .catch((e)=>{
             e.message;
@@ -27,6 +35,7 @@ const WikiDetail = () => {
         <div className="wrapper">
             {wikiData ? <>
                 <h1>{wikiData.title}</h1>
+                <h5>최초작성일 : {wikiData.created_time}</h5>
                 {subTitle.map((item)=>{
                     return(
                         <div className="subtitle_wrapper">
@@ -34,6 +43,34 @@ const WikiDetail = () => {
                         </div>
                     )
                 })}
+                <div className="recommendLevel">
+                     <span className="taiko_para">태고의 달인</span> {nowPageDocLevel} 항암곡(추가 중...)
+                    <div className="recommend">
+                     <table>
+                         <tbody>
+                             <tr>
+                             {nowPageSameLevelContents.map((item)=>{
+                                return(
+                                        <td>
+                                            <div className="sameLevelWrapper">
+                                                <div className="sameLevelThumbNail">
+                                                    <img src={item.thumnail}/>
+                                                    <div className="sameLevelSongTitle">
+                                                    <span className="songTitles">
+                                                        <a href={`/find?searchKeyword=${item.title}`}>{item.title}</a>
+                                                    </span>
+                                                </div>
+                                                </div>
+
+                                            </div>
+                                        </td>
+                                )
+                            })}
+                             </tr>
+                         </tbody>
+                     </table>
+                     </div>
+                </div>
                 <div className="wikiInfo">
                 <div className="thumbnail">
                     <img src={wikiData.thumnail}/>
@@ -68,15 +105,7 @@ const WikiDetail = () => {
 
             </div>
             </> : ''}
-            
              <div dangerouslySetInnerHTML={{ __html: wikiData.text }}></div>
-            {/* {wikiData.map((item)=>{
-                return(
-                   
-                    <div dangerouslySetInnerHTML={{ __html: item.text }}></div>
-                )
-            })} */}
-
         </div>
     )
 }
